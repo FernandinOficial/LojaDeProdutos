@@ -20,6 +20,13 @@ CREATE TABLE pedido
     prazo_entrega DATE,
     FOREIGN KEY (id_cli) REFERENCES cliente(id_cli)
 );
+CREATE TABLE produto
+(
+    id_prod int(12) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome_prod varchar(50) NOT NULL,
+    desc_prod varchar(150) NOT NULL,
+    preco_unit float(12) NOT NULL
+)
 
 CREATE TABLE item_pedido
 (
@@ -32,10 +39,3 @@ CREATE TABLE item_pedido
     FOREIGN KEY (id_prod) REFERENCES produto(id_prod)
 );
 
-CREATE TABLE produto
-(
-    id_prod int(12) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    nome_prod varchar(50) NOT NULL,
-    desc_prod varchar(150) NOT NULL,
-    preco_unit float(12) NOT NULL
-)

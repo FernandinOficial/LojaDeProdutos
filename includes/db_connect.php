@@ -6,3 +6,5 @@
     if ($mysqli->connect_errno) {
         die("Falha ao conectar ao Banco de Dados: " . $mysqli->connect_error);
     }
+
+    
