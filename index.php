@@ -25,7 +25,7 @@
         }
         #a_link:hover{
             transition: 500ms;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
     </style>
 </head>
