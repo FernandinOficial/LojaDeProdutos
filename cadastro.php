@@ -1,5 +1,8 @@
 <?php
     include_once 'includes/db_connect.php';
+
+    obj_
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +32,7 @@
     </style>
 </head>
 <body>
-    <form action="cadastro.php" method="POST">
+    <form action="<?=$_SERVER["PHP_SELF"]?>" method="POST">
 
         <fieldset>
             <legend><h1>Cadastro</h1></legend>
