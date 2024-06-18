@@ -71,7 +71,6 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
         * {
             text-align: center;
             font-family: arial;
-            background: #EEE;
         }
 
         body {
@@ -100,6 +99,10 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
     <?php if (!empty($erro)): ?>
         <p> <?= $erro ?></p>
     <?php endif; ?>
+
+    <?php
+    require_once 'header.php'; 
+    ?>
 
     <form action="<?= $_SERVER["PHP_SELF"] ?>" method="POST">
         <fieldset>
@@ -137,3 +140,4 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
     </form>
     <?php
     require_once 'footer.php';
+    ?>

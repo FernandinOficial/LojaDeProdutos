@@ -40,3 +40,4 @@ CREATE TABLE item_pedido
 );
 
 SELECT * FROM cliente;
+SELECT * FROM produto;
