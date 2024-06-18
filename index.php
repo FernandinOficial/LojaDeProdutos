@@ -55,6 +55,8 @@
 
         <a href="https:www.google.com" id="a_sair"><h3 style="color: red; float: right; padding-right: 8%;">Sair da loja</h3></a>
     </fieldset>
-</body>
+<?php 
 
-</html>
+        require_once 'footer.php';
+
+?>
