@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             if ($id_prod == -1) 
             {
                 $stmt = $mysqli->prepare("INSERT INTO `produto` (`nome_prod`, `preco_unit`, `desc_prod`) VALUES (?, ?, ?)");
-                 $stmt->bind_param( $nome_prod, $preco_unit, $desc_prod);
+                 $stmt->bind_param("sssiss",$nome_prod, $preco_unit, $desc_prod);
 
                 if ($stmt->execute())
                 {
