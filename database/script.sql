@@ -39,3 +39,4 @@ CREATE TABLE item_pedido
     FOREIGN KEY (id_prod) REFERENCES produto(id_prod)
 );
 
+SELECT * FROM cliente;
