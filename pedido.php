@@ -1,3 +1,4 @@
+
 <?php
 include_once 'includes/db_connect.php';
 
@@ -58,45 +59,73 @@ $documento = isset($_POST["documento"]) ? $_POST["documento"] : "";
 $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
 
 ?>
-        <h2>List of all peds</h2>
-        <table class="table table-bordered table-striped">
-            <tr>
-                <td>ID Pedido</td>
-                <td>ID Cliente</td>
-                <td>Data do Pedido</td>
-                <td>Prazo de entrega</td>
-                <td>Quantidade do Produto</td>
-                <td width="70px">Delete</td>
-                <td width="70px">EDIT</td>
-            </tr>
-        <?php
-        while( $row = $result->fetch_assoc())
-        {
-            echo "<form action='' method='POST'>";  //added
-            echo "<input type='hidden' value='".$row['id_ped']."'name='id_ped'/>";
-         // echo "<input type='hidden' value='".$row['user_id']."' name='userid'>";
-//added
-            echo "<tr>";
-            echo "<td>".$row['ID Pedido']. "</td>";
-            echo "<td>".$row['ID Cliente']. "</td>";
-            echo "<td>".$row['Data do Pedido']. "</td>";
-            echo "<td>".$row['Prazo de Entrega']. "</td>";
-            echo "<td>".$row['Quantidade do Produto']. "</td>";
-            echo "<td><input type='submit' name='delete' value='Delete' class='btn btn-danger'/></td>";
-           //   echo "<td><a href='edit.php?id=".$row['user_id']."' class='btn btn-info'>Edit</a></td>";
-            echo "<td><a href='.php?id=".$row['']."' class='btn btn-info'>Edit</a></td>";
-            echo "</tr>";
-            echo "</form>";//added
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
+    <style>
+        * {
+            text-align: center;
         }
-        ?>
-        </table>
- 
-<?php
-    }else{
-        echo "<br><br>No Record Found";
-    }
+        input {
+            border-radius: 10px;
+            background: white;
+        }
+
+        h1 {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <?php if (!empty($erro)): ?>
+        <p> <?= $erro ?></p>
+    <?php endif; ?>
+
+    <?php
+    require_once 'header.php'; 
     ?>
-</div>
-    <?php 
-        require_once 'footer.php';
+
+    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="POST">
+        <fieldset>
+            <legend>
+                <h1>Cadastro</h1>
+            </legend>
+
+            <label for="nome_cli">Nome completo:</label><br>
+            <input type="text" name="nome_cli" value="<?= $nome_cli ?>" required><br><br>
+
+            <label for="rua">Rua:</label><br>
+            <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
+
+            <label for="numero">Número:</label><br>
+            <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
+
+            <label for="cep">CEP:</label><br>
+            <input type="text" name="cep" value="<?= $cep ?>" required><br><br>
+
+            <label for="telefone">Telefone:</label><br>
+            <input type="tel" name="telefone" value="<?= $telefone ?>" required><br><br>
+
+            <label for="documento">Tipo de Documento:</label><br>
+            <input type="radio" name="documento" id="cpf" value="CPF" <?= $documento == "CPF" ? "checked" : "" ?>
+                required><label for="cpf">CPF (Pessoa Física)</label><br>
+            <input type="radio" name="documento" id="cnpj" value="CNPJ" <?= $documento == "CNPJ" ? "checked" : "" ?>><label
+                for="cnpj">CNPJ (Pessoa Jurídica)</label>
+            <br><br>
+
+            <input type="hidden" name="id_cli" value="<?= $id_cli ?>">
+            <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
+            <br><br>
+            <p>Se deseja fazer seu pedido clique <a class="aqui" href="pedido.php">aqui</a></p>
+        </fieldset>
+    </form>
+    <?php
+    require_once 'footer.php';
     ?>

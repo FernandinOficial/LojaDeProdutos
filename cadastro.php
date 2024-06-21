@@ -91,39 +91,40 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
     require_once 'header.php'; 
     ?>
 
-    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="POST">
-        <fieldset>
+    <form action="pedido.php" method="POST">
+        <div class="container">
+            <fieldset id="fieldsetcad">
             <legend>
                 <h1>Cadastro</h1>
             </legend>
+                <label for="nome_cli">Nome completo:</label><br>
+                <input type="text" name="nome_cli" value="<?= $nome_cli ?>" required><br><br>
 
-            <label for="nome_cli">Nome completo:</label><br>
-            <input type="text" name="nome_cli" value="<?= $nome_cli ?>" required><br><br>
+                <label for="rua">Rua:</label><br>
+                <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
 
-            <label for="rua">Rua:</label><br>
-            <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
+                <label for="numero">Número:</label><br>
+                <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
 
-            <label for="numero">Número:</label><br>
-            <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
+                <label for="cep">CEP:</label><br>
+                <input type="text" name="cep" value="<?= $cep ?>" required><br><br>
 
-            <label for="cep">CEP:</label><br>
-            <input type="text" name="cep" value="<?= $cep ?>" required><br><br>
+                <label for="telefone">Telefone:</label><br>
+                <input type="tel" name="telefone" value="<?= $telefone ?>" required><br><br>
 
-            <label for="telefone">Telefone:</label><br>
-            <input type="tel" name="telefone" value="<?= $telefone ?>" required><br><br>
+                <label for="documento">Tipo de Documento:</label><br>
+                <input type="radio" name="documento" id="cpf" value="CPF" <?= $documento == "CPF" ? "checked" : "" ?>
+                    required><label for="cpf">CPF (Pessoa Física)</label><br>
+                <input type="radio" name="documento" id="cnpj" value="CNPJ" <?= $documento == "CNPJ" ? "checked" : "" ?>><label
+                    for="cnpj">CNPJ (Pessoa Jurídica)</label>
+                <br><br>
 
-            <label for="documento">Tipo de Documento:</label><br>
-            <input type="radio" name="documento" id="cpf" value="CPF" <?= $documento == "CPF" ? "checked" : "" ?>
-                required><label for="cpf">CPF (Pessoa Física)</label><br>
-            <input type="radio" name="documento" id="cnpj" value="CNPJ" <?= $documento == "CNPJ" ? "checked" : "" ?>><label
-                for="cnpj">CNPJ (Pessoa Jurídica)</label>
-            <br><br>
-
-            <input type="hidden" name="id_cli" value="<?= $id_cli ?>">
-            <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
-            <br><br>
-            <p>Se deseja fazer seu pedido clique <a href="pedido.php">aqui</a></p>
-        </fieldset>
+                <input type="hidden" name="id_cli" value="<?= $id_cli ?>">
+                <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
+                <br><br>
+                <p>Se deseja fazer seu pedido clique <a class="aqui" href="pedido.php">aqui</a></p>
+            </fieldset>
+        </div>
     </form>
     <?php
     require_once 'footer.php';

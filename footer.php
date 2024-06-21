@@ -1,9 +1,9 @@
 <footer>
-        <table>
+        <table id="tablefooter">
             <tr>
-                <td>Serviço <br> confiavel</td>
-                <td>Qualidade <br> garantida</td>
-                <td>10 Anos de <br> carreira</td>
+                <td id="tdfooter">Serviço <br> confiavel</td>
+                <td id="tdfooter">Qualidade <br> garantida</td>
+                <td id="tdfooter">10 Anos de <br> carreira</td>
             </tr>
         </table>
         <hr>

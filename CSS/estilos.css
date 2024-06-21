@@ -20,6 +20,11 @@ header {
     font-size: 20px;
     padding: 20px;
 }
+.container {
+    max-width: 500px;   /*tamanho do fieldset*/
+    margin: 0 auto; /* Centraliza o container na página */
+    padding: 20px;
+}
 
 a {
     color: white;
@@ -38,13 +43,12 @@ footer {
     background-color: #3b533b;
     color: #fff;
 }
-table {
+#tablefooter {
     display: flex;
     justify-content: center;
     padding: 50px;
 }
-
-td {
+#tdfooter {
     background-color: #303d30;
     padding: 50px;
     font-size: 20px;
@@ -60,27 +64,26 @@ hr {
 
 /* FIM FOOTER */
 /* CADASTRO */
-input{
-    
-}
+
 /* FIM CADASTRO */
+/* PRATELEIRA */
+.tabelapra{
+    border-collapse: collapse;
+}
+/* FIM PRATELEIRA */
 fieldset {
     margin-top: 10em;
-    margin-left: 50em;
-    margin-right: 50em;
     border-radius: 10px;
     padding: 5px;
 }
 
 input {
-    border-radius: 10px;
+    border-radius: 5px;
     background: white;
-    padding: 10px;
+    padding: 9px;
+    padding-left: 50px;  /*tamanho das laterais*/
+    padding-right: 50px;  /*tamanho das laterais*/
 }
-
-
-
-
 #submit {
     font-size: 16px;
     padding: 10px;
@@ -97,4 +100,12 @@ input {
     background-color: white;
     color: black;
     transform: scale(1.05);
+}
+
+.aqui {
+    color: black;
+}
+
+.aqui:hover {
+    color: rgb(8, 182, 8);
 }
