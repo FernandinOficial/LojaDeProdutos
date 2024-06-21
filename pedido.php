@@ -17,6 +17,11 @@ $result = $mysqli->query($sql);
 if( $result->num_rows > 0) {
  
         ?>
+
+        <?php
+        require_once 'header.php';
+        ?>
+
         <h2>List of all peds</h2>
         <table class="table table-bordered table-striped">
             <tr>
@@ -56,3 +61,6 @@ if( $result->num_rows > 0) {
     }
     ?>
 </div>
+    <?php 
+        require_once 'footer.php';
+    ?>

@@ -13,12 +13,6 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        fieldset {
-            margin-top: 10em;
-            margin-left: 50em;
-            margin-right: 50em;
-            border-radius: 15px;
-        }
 
         #a_link {
             color: blue;
