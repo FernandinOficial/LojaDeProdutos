@@ -7,7 +7,8 @@
 
 /* HEADER */
 header {
-    background-color: #3b533b;
+    background: rgb(80,97,69);
+    background: linear-gradient(180deg, rgba(80,97,69,1) 0%, rgba(9,149,16,1) 100%);
     padding: 20px;
 }
 
@@ -37,7 +38,7 @@ a {
 }
 
 a:hover {
-    color: rgb(11, 204, 11);
+    color: goldenrod;
     transition: 500ms;
     transform: scale(1.05);
 }
@@ -46,7 +47,8 @@ a:hover {
 /* FOOTER */
 footer {
     margin-top: 5%;
-    background-color: #3b533b;
+    background: rgb(80,97,69);
+    background: linear-gradient(0deg, rgba(80,97,69,1) 0%, rgba(9,149,16,1) 100%);  
     color: #fff;
 }
 
@@ -57,7 +59,7 @@ footer {
 }
 
 #tdfooter {
-    background-color: #303d30;
+    background-color: rgb(5, 65, 18);
     padding: 50px;
     font-size: 20px;
 }
@@ -73,12 +75,14 @@ hr {
 
 /* FIM FOOTER */
 /* CADASTRO */
-input[type=text],[type=tel]  {
+input[type=text],
+[type=tel] {
     border-radius: 4px;
     border: none;
 }
-.cadastrar{
-    background-color: rgb(75, 102, 72);
+
+.cadastrar {
+    background-color: rgb(106, 110, 105);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -89,22 +93,30 @@ input[type=text],[type=tel]  {
     margin: 4px 2px;
     cursor: pointer;
 }
+
 /* FIM CADASTRO */
 /* PRATELEIRA */
 .tabelapra {
     border-collapse: collapse;
     width: 75%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.tabelapra td, .tabelapra th {
+
+.tabelapra td,
+.tabelapra th {
     border: 1px solid #000000;
     padding: 8px;
 }
-.tabelapra tr:nth-child(even){
+
+.tabelapra tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+
 .tabelapra tr:hover {
     background-color: #ddd;
 }
+
 .tabelapra th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -112,18 +124,25 @@ input[type=text],[type=tel]  {
     background-color: #04AA6D;
     color: white;
 }
+
 .delete {
     background-color: red;
     padding: 5px;
     border-radius: 5px;
+}
+#deletado {
+    background-color: red;
+    color: white;
+    border: 1px solid black;
 }
 /* FIM PRATELEIRA */
 fieldset {
     margin-top: 10em;
     border-radius: 6px;
     padding: 5px;
-    background-color:#b2d7af;
+    background-color: #b2d7af;
 }
+
 legend {
     color: #000000;
     background-color: #92af8f;
@@ -141,6 +160,7 @@ input {
     padding-right: 50px;
     /*tamanho das laterais*/
 }
+
 #submit {
     font-size: 16px;
     padding: 10px;
@@ -166,8 +186,13 @@ input {
 
 .aqui:hover {
     color: rgb(8, 182, 8);
-    
+
 }
-.container{
+
+.container {
     background-image: url('imagens/bgFrutas.jpeg');
+}
+.delete{
+    font-family: sans-serif;
+    color: white;
 }

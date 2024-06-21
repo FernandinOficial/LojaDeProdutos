@@ -4,29 +4,29 @@ include_once 'includes/db_connect.php';
 $erro = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["nome_cli"], $_POST["rua"], $_POST["numero"], $_POST["cep"], $_POST["telefone"], $_POST["documento"])) {
+
+    if (isset($_POST["data_ped"], $_POST["prazo_entrega"])) {
         // Validando campos obrigatórios
-        if (empty($_POST["nome_cli"]) || empty($_POST["cep"]) || empty($_POST["numero"]) || empty($_POST["telefone"]) || empty($_POST["documento"])) {
+        if (empty($_POST["data_ped"]) || empty($_POST["prazo_entrega"])) {
+
             $erro = "Todos os campos são obrigatórios.";
+
         } else {
-            $id = $_POST["id_cli"];
-            $nome_cli = $_POST["nome_cli"];
-            $rua = $_POST["rua"];
-            $numero = $_POST["numero"];
-            $cep = $_POST["cep"];
-            $telefone = $_POST["telefone"];
-            $documento = $_POST["documento"];
+            
+            $id_ped = $_POST["id_ped"];
+            $data_ped = $_POST["data_ped"];
+            $prazo_entrega = $_POST["prazo_entrega"];
 
             // Inserindo ou atualizando no banco de dados
-            if ($id == -1) {
-                $stmt = $mysqli->prepare("INSERT INTO `cliente` (`nome_cli`, `rua`, `numero`, `cep`, `telefone`, `documento`) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssiss", $nome_cli, $rua, $numero, $cep, $telefone, $documento);
+            if ($id_ped == -1) {
+                $stmt = $mysqli->prepare("INSERT INTO `pedido` (`data_ped`, `prazo_entrega`) VALUES (?, ?)");
+                $stmt->bind_param("sssiss", $data_ped, $prazo_entrega);
 
                 if ($stmt->execute()) {
-                    header("Location: cadastro.php");
+                    header("Location: pedido.php");
                     exit;
                 } else {
-                    $erro = "Erro ao cadastrar cliente: " . $stmt->error;
+                    $erro = "Erro ao cadastrar pedido: " . $stmt->error;
                 }
             } else {
                 $erro = "Operação não suportada.";
@@ -38,25 +38,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // processamento para deletar cliente
-if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])) {
-    $id_cli = (int) $_GET["id_cli"];
-    $stmt = $mysqli->prepare("DELETE FROM `cliente` WHERE id_cli = ?");
-    $stmt->bind_param('i', $id_cli);
+if (isset($_GET["id_ped"]) && is_numeric($_GET["id_ped"]) && isset($_GET["del"])) {
+    $id_ped = (int) $_GET["id_ped"];
+    $stmt = $mysqli->prepare("DELETE FROM `pedido` WHERE id_ped = ?");
+    $stmt->bind_param('i', $idid_ped_cli);
     $stmt->execute();
 
-    header("Location: cadastro.php");
+    header("Location: pedido.php");
     exit;
 }
 
 // preenchendo os valores para edição
-$nome_cli = isset($_POST["nome_cli"]) ? $_POST["nome_cli"] : "";
-$rua = isset($_POST["rua"]) ? $_POST["rua"] : "";
-$numero = isset($_POST["numero"]) ? $_POST["numero"] : "";
-$cep = isset($_POST["cep"]) ? $_POST["cep"] : "";
-$telefone = isset($_POST["telefone"]) ? $_POST["telefone"] : "";
-$documento = isset($_POST["documento"]) ? $_POST["documento"] : "";
-$id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
-
+$prazo_entrega = isset($_POST["prazo_entrega"]) ? $_POST["prazo_entrega"] : "";
+$data_ped = isset($_POST["data_ped"]) ? $_POST["data_ped"] : "";
 ?>
 
 <!DOCTYPE html>
@@ -85,11 +79,12 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
             width: 275px;
             border-radius: 5px;
             background-color: white;
+            font-size: 20px;
         }
 
         button:hover {
-            transition: 3s;
-            background-color: ;
+            transition: 1s;
+            background-color: rgb(106, 110, 105);
         }
         
     </style>

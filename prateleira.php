@@ -5,14 +5,15 @@ require_once 'header.php';
 if (isset($_POST['delete'])) {
     $sql = "DELETE FROM produto WHERE id_prod=" . $_POST['id_prod'];
     if ($mysqli->query($sql) === TRUE) {
-        echo "deletado com sucesso";
+        $produto = $_POST['nome_prod'];
+        echo $produto;  
+        echo "<h1 id='deletado'>desabilitado com sucesso</h1>";
     }
 }
 
 $sql = "SELECT * FROM produto";
 $result = $mysqli->query($sql);
-if ($result->num_rows > 0) {
-}
+
 
 ?>
 
@@ -27,6 +28,7 @@ if ($result->num_rows > 0) {
         <th width="70px">Delete</th>
     </tr>
     <?php
+    if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<form action='' method='POST'>";
         echo "<input type='hidden' value='" . $row['id_prod'] . "' name='id_prod' />";
@@ -37,12 +39,12 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row['preco_unit'] . "</td>";
         echo "<td>" . $row['desc_prod'] . "</td>";
 
-        echo "<td><input type='submit' name='delete' value='Delete' class='delete'/></td>"; // cria um input que serve como o botão de delete
+        echo "<td><input type='submit' name='delete' value='Disable' class='delete'/></td>"; // cria um input que serve como o botão de delete
     
         echo "</tr>";
         echo "</form>";
+        }
     }
-
     ?>
 
 </table>

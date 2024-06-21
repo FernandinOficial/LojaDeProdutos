@@ -1,6 +1,8 @@
 <style>
     header{
-        background-image: url('imagens/bgFrutas.jpeg');
+        
+        margin: 0;
+        padding: 0;
     }
 </style>
 <header>
