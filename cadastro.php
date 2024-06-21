@@ -36,6 +36,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erro = "Todos os campos são obrigatórios.";
     }
 }
+
+// processamento para deletar cliente
+if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])) {
+    $id_cli = (int) $_GET["id_cli"];
+    $stmt = $mysqli->prepare("DELETE FROM `cliente` WHERE id_cli = ?");
+    $stmt->bind_param('i', $id_cli);
+    $stmt->execute();
+
+    header("Location: cadastro.php");
+    exit;
+}
+
+// preenchendo os valores para edição
+$nome_cli = isset($_POST["nome_cli"]) ? $_POST["nome_cli"] : "";
+$rua = isset($_POST["rua"]) ? $_POST["rua"] : "";
+$numero = isset($_POST["numero"]) ? $_POST["numero"] : "";
+$cep = isset($_POST["cep"]) ? $_POST["cep"] : "";
+$telefone = isset($_POST["telefone"]) ? $_POST["telefone"] : "";
+$documento = isset($_POST["documento"]) ? $_POST["documento"] : "";
+$id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
+
 ?>
 
 <!DOCTYPE html>
@@ -44,19 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
+    <title>Cadastro | Supermercado Avante</title>
+    <link rel="shortcut icon" href="imagens/iconCadastro.png" type="image/x-icon">
+    <link rel="stylesheet" href="CSS/estilos.css">
     <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
     <style>
         * {
             text-align: center;
-        }
-        input {
-            border-radius: 10px;
-            background: white;
-        }
-
-        h1 {
-            color: blue;
         }
     </style>
 </head>
@@ -99,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br><br>
 
                 <input type="hidden" name="id_cli" value="<?= $id_cli ?>">
-                <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
+                <button type="submit" class="cadastrar"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
                 <br><br>
                 <p>Se deseja fazer seu pedido clique <a class="aqui" href="pedido.php">aqui</a></p>
             </fieldset>

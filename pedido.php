@@ -1,4 +1,3 @@
-
 <?php
 include_once 'includes/db_connect.php';
 
@@ -38,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Processamento para deletar cliente
+// processamento para deletar cliente
 if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])) {
     $id_cli = (int) $_GET["id_cli"];
     $stmt = $mysqli->prepare("DELETE FROM `cliente` WHERE id_cli = ?");
@@ -49,7 +48,7 @@ if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])
     exit;
 }
 
-// Preenchendo os valores para edição
+// preenchendo os valores para edição
 $nome_cli = isset($_POST["nome_cli"]) ? $_POST["nome_cli"] : "";
 $rua = isset($_POST["rua"]) ? $_POST["rua"] : "";
 $numero = isset($_POST["numero"]) ? $_POST["numero"] : "";
@@ -66,20 +65,33 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja</title>
+    <title>Loja Avante</title>
     <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
     <style>
         * {
             text-align: center;
         }
         input {
-            border-radius: 10px;
+            border-radius: 5px;
             background: white;
         }
 
         h1 {
-            color: blue;
+            color: black;
         }
+
+        button {
+            padding: 10px;
+            width: 275px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        button:hover {
+            transition: 3s;
+            background-color: ;
+        }
+        
     </style>
 </head>
 
@@ -92,39 +104,22 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
     require_once 'header.php'; 
     ?>
 
-    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="POST">
-        <fieldset>
-            <legend>
-                <h1>Cadastro</h1>
-            </legend>
+    <form action="prateleira.php" method="POST">
+        <div class="container">
+            <fieldset id="fieldsetcad"><legend><h1>Pedido</h1></legend><br>
+        
+                <label for="prazo_entrega">Prazo de entrega:</label><br>
+                <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
 
-            <label for="nome_cli">Nome completo:</label><br>
-            <input type="text" name="nome_cli" value="<?= $nome_cli ?>" required><br><br>
+                <label for="data_ped">Data do pedido:</label><br>
+                <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
 
-            <label for="rua">Rua:</label><br>
-            <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
-
-            <label for="numero">Número:</label><br>
-            <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
-
-            <label for="cep">CEP:</label><br>
-            <input type="text" name="cep" value="<?= $cep ?>" required><br><br>
-
-            <label for="telefone">Telefone:</label><br>
-            <input type="tel" name="telefone" value="<?= $telefone ?>" required><br><br>
-
-            <label for="documento">Tipo de Documento:</label><br>
-            <input type="radio" name="documento" id="cpf" value="CPF" <?= $documento == "CPF" ? "checked" : "" ?>
-                required><label for="cpf">CPF (Pessoa Física)</label><br>
-            <input type="radio" name="documento" id="cnpj" value="CNPJ" <?= $documento == "CNPJ" ? "checked" : "" ?>><label
-                for="cnpj">CNPJ (Pessoa Jurídica)</label>
-            <br><br>
-
-            <input type="hidden" name="id_cli" value="<?= $id_cli ?>">
-            <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
-            <br><br>
-            <p>Se deseja fazer seu pedido clique <a class="aqui" href="pedido.php">aqui</a></p>
-        </fieldset>
+                <input type="hidden" name="id_cli" value="<?= $id_cli ?>"><br>
+                <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
+                <br><br>
+                <p>Clique <a class="aqui" href="produto.php">aqui</a> para fazer o seu </p>
+            </fieldset>
+        </div>
     </form>
     <?php
     require_once 'footer.php';

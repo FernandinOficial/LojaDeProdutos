@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     text-align: center;
-    font-family: arial;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* HEADER */
@@ -73,7 +73,22 @@ hr {
 
 /* FIM FOOTER */
 /* CADASTRO */
-
+input[type=text],[type=tel]  {
+    border-radius: 4px;
+    border: none;
+}
+.cadastrar{
+    background-color: rgb(75, 102, 72);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 /* FIM CADASTRO */
 /* PRATELEIRA */
 .tabelapra {
@@ -84,8 +99,11 @@ hr {
     border: 1px solid #000000;
     padding: 8px;
 }
-.tabelapra tr{
-    background-color: #b6b6b6;
+.tabelapra tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.tabelapra tr:hover {
+    background-color: #ddd;
 }
 .tabelapra th {
     padding-top: 12px;
@@ -94,11 +112,24 @@ hr {
     background-color: #04AA6D;
     color: white;
 }
+.delete {
+    background-color: red;
+    padding: 5px;
+    border-radius: 5px;
+}
 /* FIM PRATELEIRA */
 fieldset {
     margin-top: 10em;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 5px;
+    background-color:#b2d7af;
+}
+legend {
+    color: #000000;
+    background-color: #92af8f;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #000;
 }
 
 input {
@@ -110,7 +141,6 @@ input {
     padding-right: 50px;
     /*tamanho das laterais*/
 }
-
 #submit {
     font-size: 16px;
     padding: 10px;
@@ -137,4 +167,7 @@ input {
 .aqui:hover {
     color: rgb(8, 182, 8);
     
+}
+.container{
+    background-image: url('imagens/bgFrutas.jpeg');
 }

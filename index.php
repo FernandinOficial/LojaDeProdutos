@@ -4,19 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Links</title>
+    <title>| Supermercado Avante</title>
+    <link rel="shortcut icon" href="imagens/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilos.css">
-    <style>
-        * {
-            text-align: center;
-            font-family: arial;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
+    <style> 
         #a_link {
-            color: blue;
+            
         }
-
         #a_link:hover {
             transition: 500ms;
             transform: scale(1.1);
