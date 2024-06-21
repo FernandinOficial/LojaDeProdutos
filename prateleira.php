@@ -4,9 +4,15 @@
 
     if(isset($_POST['delete'])) {
         $sql = "DELETE FROM produto WHERE id_prod=".$_POST['id_prod'];
-        if()
+        if($mysqli->query($sql) === TRUE) {
+            echo "deletado com sucesso";
+        }
     }
-?>
+
+
+
+    
+        ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,3 +36,4 @@
     </table>
 </body>
 </html>
+    

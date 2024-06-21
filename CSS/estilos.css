@@ -4,11 +4,13 @@
     text-align: center;
     font-family: arial;
 }
+
 /* HEADER */
 header {
     background-color: #3b533b;
     padding: 20px;
 }
+
 .nav {
     color: white;
     text-align: center;
@@ -20,9 +22,12 @@ header {
     font-size: 20px;
     padding: 20px;
 }
+
 .container {
-    max-width: 500px;   /*tamanho do fieldset*/
-    margin: 0 auto; /* Centraliza o container na página */
+    max-width: 500px;
+    /*tamanho do fieldset*/
+    margin: 0 auto;
+    /* Centraliza o container na página */
     padding: 20px;
 }
 
@@ -30,6 +35,7 @@ a {
     color: white;
     text-decoration: none;
 }
+
 a:hover {
     color: rgb(11, 204, 11);
     transition: 500ms;
@@ -43,16 +49,19 @@ footer {
     background-color: #3b533b;
     color: #fff;
 }
+
 #tablefooter {
     display: flex;
     justify-content: center;
     padding: 50px;
 }
+
 #tdfooter {
     background-color: #303d30;
     padding: 50px;
     font-size: 20px;
 }
+
 hr {
     width: 90%;
     margin-left: 5%;
@@ -67,8 +76,23 @@ hr {
 
 /* FIM CADASTRO */
 /* PRATELEIRA */
-.tabelapra{
+.tabelapra {
     border-collapse: collapse;
+    width: 75%;
+}
+.tabelapra td, .tabelapra th {
+    border: 1px solid #000000;
+    padding: 8px;
+}
+.tabelapra tr{
+    background-color: #b6b6b6;
+}
+.tabelapra th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
 }
 /* FIM PRATELEIRA */
 fieldset {
@@ -81,9 +105,12 @@ input {
     border-radius: 5px;
     background: white;
     padding: 9px;
-    padding-left: 50px;  /*tamanho das laterais*/
-    padding-right: 50px;  /*tamanho das laterais*/
+    padding-left: 50px;
+    /*tamanho das laterais*/
+    padding-right: 50px;
+    /*tamanho das laterais*/
 }
+
 #submit {
     font-size: 16px;
     padding: 10px;
@@ -104,8 +131,10 @@ input {
 
 .aqui {
     color: black;
+    text-decoration: underline;
 }
 
 .aqui:hover {
     color: rgb(8, 182, 8);
+    
 }

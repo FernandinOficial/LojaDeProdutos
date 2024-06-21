@@ -36,27 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $erro = "Todos os campos são obrigatórios.";
     }
 }
-
-// Processamento para deletar cliente
-if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])) {
-    $id_cli = (int) $_GET["id_cli"];
-    $stmt = $mysqli->prepare("DELETE FROM `cliente` WHERE id_cli = ?");
-    $stmt->bind_param('i', $id_cli);
-    $stmt->execute();
-
-    header("Location: cadastro.php");
-    exit;
-}
-
-// Preenchendo os valores para edição
-$nome_cli = isset($_POST["nome_cli"]) ? $_POST["nome_cli"] : "";
-$rua = isset($_POST["rua"]) ? $_POST["rua"] : "";
-$numero = isset($_POST["numero"]) ? $_POST["numero"] : "";
-$cep = isset($_POST["cep"]) ? $_POST["cep"] : "";
-$telefone = isset($_POST["telefone"]) ? $_POST["telefone"] : "";
-$documento = isset($_POST["documento"]) ? $_POST["documento"] : "";
-$id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
-
 ?>
 
 <!DOCTYPE html>
