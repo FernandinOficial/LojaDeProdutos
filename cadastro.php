@@ -70,20 +70,7 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
     <style>
         * {
             text-align: center;
-            font-family: arial;
         }
-
-        body {
-            background-color: gray;
-        }
-
-        fieldset {
-            margin-top: 10em;
-            margin-left: 50em;
-            margin-right: 50em;
-            border-radius: 15px;
-        }
-
         input {
             border-radius: 10px;
             background: white;

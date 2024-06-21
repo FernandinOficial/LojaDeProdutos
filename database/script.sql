@@ -38,6 +38,7 @@ CREATE TABLE item_pedido
     FOREIGN KEY (id_ped) REFERENCES pedido(id_ped),
     FOREIGN KEY (id_prod) REFERENCES produto(id_prod)
 );
-
+USE dbloja;
 SELECT * FROM cliente;
+USE dbloja;
 SELECT * FROM produto;

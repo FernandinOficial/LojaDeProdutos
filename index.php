@@ -12,14 +12,15 @@
             font-family: arial;
             font-family: Arial, Helvetica, sans-serif;
         }
-
-
         #a_link {
             color: blue;
         }
         #a_link:hover{
             transition: 500ms;
             transform: scale(1.1);
+        }
+        body{
+            background-image: url(imagens/backgrondindex.jpg);
         }
     </style>
 </head>

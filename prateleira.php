@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="CSS/estilos.css">
 </head>
 <body>
-    <table>
-        teste
+    <table border="1">
+        <tr>
+            <td>
+                
+            </td>
+        </tr>
     </table>
 </body>
 </html>

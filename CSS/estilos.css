@@ -4,13 +4,11 @@
     text-align: center;
     font-family: arial;
 }
-
 /* HEADER */
 header {
     background-color: #3b533b;
     padding: 20px;
 }
-
 .nav {
     color: white;
     text-align: center;
@@ -36,10 +34,10 @@ a:hover {
 /* FIM HEADER */
 /* FOOTER */
 footer {
+    margin-top: 5%;
     background-color: #3b533b;
     color: #fff;
 }
-
 table {
     display: flex;
     justify-content: center;
@@ -51,7 +49,6 @@ td {
     padding: 50px;
     font-size: 20px;
 }
-
 hr {
     width: 90%;
     margin-left: 5%;
@@ -62,6 +59,8 @@ hr {
 }
 
 /* FIM FOOTER */
+/* CADASTRO */
+/* FIM CADASTRO */
 fieldset {
     margin-top: 10em;
     margin-left: 50em;

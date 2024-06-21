@@ -7,7 +7,7 @@
             </tr>
         </table>
         <hr>
-        <p id="direitos">Direitos Autorais Reservados</p>
+        <p id="direitos">&copy; Direitos Autorais Reservados</p>
     </footer>
 </body>
 </html>
