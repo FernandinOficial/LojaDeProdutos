@@ -93,7 +93,7 @@ $id_prod = isset($_POST["id_prod"]) ? $_POST["id_prod"] : -1;
                 <input type="text" name="preco_unit" value="<?= htmlspecialchars($preco_unit) ?>" required><br><br>
 
                 <input type="hidden" name="id_prod" value="<?= htmlspecialchars($id_prod) ?>">
-                <button type="submit"><?= ($id_prod == -1) ? "Cadastrar" : "Salvar" ?></button>
+                <button type="submit" style="cursor: pointer;"><?= ($id_prod == -1) ? "Cadastrar" : "Salvar" ?></button>
                 <br><br>
                 <p>Se deseja fazer seu pedido clique <a class="aqui" href="pedido.php">aqui</a></p>
             </fieldset>

@@ -5,9 +5,7 @@ require_once 'header.php';
 if (isset($_POST['delete'])) {
     $sql = "DELETE FROM produto WHERE id_prod=" . $_POST['id_prod'];
     if ($mysqli->query($sql) === TRUE) {
-        $produto = $_POST['nome_prod'];
-        echo $produto;  
-        echo "<h1 id='deletado'>desabilitado com sucesso</h1>";
+        echo "<h1 id='deletado'><strong>produto<strong> desabilitado com sucesso</h1>";
     }
 }
 
