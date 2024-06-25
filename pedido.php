@@ -1,6 +1,12 @@
 <?php
 include_once 'includes/db_connect.php';
+
+// Verifica se há uma conexão válida com o banco de dados
+if ($mysqli->connect_error) {
+    die('Erro na conexão (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -39,50 +45,43 @@ include_once 'includes/db_connect.php';
 </head>
 
 <body>
+    <?php require_once 'header.php'; ?>
     <?php
-    require_once 'header.php';
-
-    $sql = "SELECT * FROM cliente";
-    $result = $mysqli->query($sql);
-
-    if ($result->num_rows > 0) {
-        ?>
-        <h2>List of all Users</h2>
-        <table class="table table-bordered table-striped" border="1">
-            <tr>
-                <td>Nome</td>
-                <td>Rua</td>
-                <td>Número</td>
-                <td>CEP</td>
-                <td>Telefone</td>
-                <td>Documento</td>
-                <td width="70px">Selecionar</td>
-            </tr>
-            <?php
-            while ($row = $result->fetch_assoc()) {
-                echo "<form action='' method='POST'>";   //lista oculta
-                echo "<input type='hidden' value='" . $row['id_cli'] . "' name='userid' />";
-                echo "<tr>";
-                echo "<td>" . $row['nome_cli'] . "</td>";
-                echo "<td>" . $row['rua'] . "</td>";
-                echo "<td>" . $row['numero'] . "</td>";
-                echo "<td>" . $row['cep'] . "</td>";
-                echo "<td>" . $row['telefone'] . "</td>";
-                echo "<td>" . $row['documento'] . "</td>";
-
-                echo "<td><a href='pedido.php?id=" . $row['id_cli'] . "' class='btn btn-info'>Selecionar</a></td>";
-                echo "</tr>";
-                echo "</form>";
-            }
+        $sql = "SELECT * FROM cliente";
+        $result = $mysqli->query($sql);
+        if ($result->num_rows > 0) {
             ?>
-        </table>
-        <?php
-    } else {
-        echo "<br><br>No Record Found";
-    }
+            <h2>Lista de usuários 2.0</h2>
+            <table class="tabelapra">
+                <tr>
+                    <th>Nome</th>
+                    <th>Rua</th>
+                    <th>Número</th>
+                    <th>CEP</th>
+                    <th>Telefone</th>
+                    <th>Documento</th>
+                    <th width="70px">Selecionar</th>
+                </tr>
+                <?php
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['nome_cli'] . "</td>";
+                    echo "<td>" . $row['rua'] . "</td>";
+                    echo "<td>" . $row['numero'] . "</td>";
+                    echo "<td>" . $row['cep'] . "</td>";
+                    echo "<td>" . $row['telefone'] . "</td>";
+                    echo "<td>" . $row['documento'] . "</td>";
+                    echo "<td><a style='color: blue;' href='pedido.php?id=" . $row['id_cli'] . "' class='btn btn-info'>Selecionar</a></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+            <?php
+        } else {
+            echo "<br><br>Nenhum registro encontrado";
+        }
+    
     ?>
-
-
     <form action="prateleira.php" method="POST">
         <div class="container">
             <fieldset id="fieldsetcad">
@@ -90,23 +89,22 @@ include_once 'includes/db_connect.php';
                     <h1>Pedido</h1>
                 </legend><br>
 
-                <label for="">Nome Cliente</label><br>
-                <input type="text" name="nome_cli" value="<?php $nome_cli ?>"><button action="<? php ?>"
-                    style="color: blue;">Pesquisar</button> <br><br>
+                <label for="nome_cli">Nome Cliente</label><br>
+                <input type="text" name="nome_cli" value="<?php echo $id_cli?>"><br><br>
 
-                <label for="">Produto</label><br>
-                <input type="text" name="nome_prod" value="<?php $nome_prod ?>"> <br><br>
+                <label for="nome_prod">Produto</label><br>
+                <input type="text" name="nome_prod" value="<?php echo $nome_prod?>"> <br><br>
 
                 <label for="data_ped">Data de emissão:</label><br>
-                <input type="text" name="numero" value="<?php $data_ped ?>" required><br><br>
+                <input type="text" name="data_ped" value="<?php echo $data_ped?>"
+                    required><br><br>
 
-                <input type="hidden" name="id_cli" value="<?php $id_cli ?>"><br>
-                <button class="button" type="submit"><? ($id_cli == -1) ?>Comprar</button>
-                <br><br>
-                <p>Clique <a class="aqui" href="produto.php">aqui</a> para fazer o seu </p>
+                <input type="hidden" name="id_cli" value="<?php echo $id_cli?>"><br>
+
+                <button class="button" type="submit"></button><br><br>
+                <p>Clique <a class="aqui" href="produto.php">aqui</a> para fazer o seu pedido</p>
             </fieldset>
         </div>
     </form>
-    <?php
-    require_once 'footer.php';
-    ?>
+    <?php require_once 'footer.php'; ?>
+</body>

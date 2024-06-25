@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Inserindo ou atualizando no banco de dados
             if ($id == -1) {
                 $stmt = $mysqli->prepare("INSERT INTO `cliente` (`nome_cli`, `rua`, `numero`, `cep`, `telefone`, `documento`) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("sssiss", $nome_cli, $rua, $numero, $cep, $telefone, $documento);
+                $stmt->bind_param("ssisss", $nome_cli, $rua, $numero, $cep, $telefone, $documento);
 
                 if ($stmt->execute()) {
                     header("Location: cadastro.php");
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $erro = "Erro ao cadastrar cliente: " . $stmt->error;
                 }
             } else {
-                $erro = "Operação não suportada.";
+                $erro = "Operação não suportada."; // Aqui pode ser necessário implementar a lógica para atualização
             }
         }
     } else {
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// processamento para deletar cliente
+// Processamento para deletar cliente
 if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])) {
     $id_cli = (int) $_GET["id_cli"];
     $stmt = $mysqli->prepare("DELETE FROM `cliente` WHERE id_cli = ?");
@@ -48,7 +48,7 @@ if (isset($_GET["id_cli"]) && is_numeric($_GET["id_cli"]) && isset($_GET["del"])
     exit;
 }
 
-// preenchendo os valores para edição
+// Preenchendo os valores para edição
 $nome_cli = isset($_POST["nome_cli"]) ? $_POST["nome_cli"] : "";
 $rua = isset($_POST["rua"]) ? $_POST["rua"] : "";
 $numero = isset($_POST["numero"]) ? $_POST["numero"] : "";
@@ -68,7 +68,6 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
     <title>Cadastro | Supermercado Avante</title>
     <link rel="shortcut icon" href="imagens/iconCadastro.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilos.css">
-    <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
     <style>
         * {
             text-align: center;
@@ -78,48 +77,45 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
 
 <body>
     <?php if (!empty($erro)): ?>
-        <p> <?= $erro ?></p>
+        <p><?= htmlspecialchars($erro) ?></p>
     <?php endif; ?>
 
-    <?php
-    require_once 'header.php'; 
-    ?>
+    <?php require_once 'header.php'; ?>
 
-    <form action="pedido.php" method="POST">
+    <form action="cadastro.php" method="POST">
         <div class="container">
             <fieldset id="fieldsetcad">
-            <legend>
-                <h1>Cadastro</h1>
-            </legend>
+                <legend><h1>Cadastro</h1></legend>
+                
                 <label for="nome_cli">Nome completo:</label><br>
-                <input type="text" name="nome_cli" value="<?= $nome_cli ?>" required><br><br>
+                <input type="text" name="nome_cli" value="<?= htmlspecialchars($nome_cli) ?>" required><br><br>
 
                 <label for="rua">Rua:</label><br>
-                <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
+                <input type="text" name="rua" value="<?= htmlspecialchars($rua) ?>" required><br><br>
 
                 <label for="numero">Número:</label><br>
-                <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
+                <input type="text" name="numero" value="<?= htmlspecialchars($numero) ?>" required><br><br>
 
                 <label for="cep">CEP:</label><br>
-                <input type="text" name="cep" value="<?= $cep ?>" required><br><br>
+                <input type="text" name="cep" value="<?= htmlspecialchars($cep) ?>" required><br><br>
 
                 <label for="telefone">Telefone:</label><br>
-                <input type="tel" name="telefone" value="<?= $telefone ?>" required><br><br>
+                <input type="tel" name="telefone" value="<?= htmlspecialchars($telefone) ?>" required><br><br>
 
                 <label for="documento">Tipo de Documento:</label><br>
-                <input type="radio" name="documento" id="cpf" value="CPF" <?= $documento == "CPF" ? "checked" : "" ?>
-                    required><label for="cpf">CPF (Pessoa Física)</label><br>
-                <input type="radio" name="documento" id="cnpj" value="CNPJ" <?= $documento == "CNPJ" ? "checked" : "" ?>><label
-                    for="cnpj">CNPJ (Pessoa Jurídica)</label>
-                <br><br>
+                <input type="radio" name="documento" id="cpf" value="CPF" <?= ($documento == "CPF") ? "checked" : "" ?> required>
+                <label for="cpf">CPF (Pessoa Física)</label><br>
+                <input type="radio" name="documento" id="cnpj" value="CNPJ" <?= ($documento == "CNPJ") ? "checked" : "" ?>>
+                <label for="cnpj">CNPJ (Pessoa Jurídica)</label><br><br>
 
-                <input type="hidden" name="id_cli" value="<?= $id_cli ?>">
-                <button type="submit" class="cadastrar"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
-                <br><br>
+                <input type="hidden" name="id_cli" value="<?= htmlspecialchars($id_cli) ?>">
+                <button type="submit" class="cadastrar"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button><br><br>
                 <p>Se deseja fazer seu pedido clique <a class="aqui" href="pedido.php">aqui</a></p>
             </fieldset>
         </div>
     </form>
-    <?php
-    require_once 'footer.php';
-    ?>
+
+    <?php require_once 'footer.php'; ?>
+</body>
+
+</html>

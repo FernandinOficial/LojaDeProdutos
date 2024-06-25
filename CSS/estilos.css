@@ -70,7 +70,6 @@ hr {
 #direitos {
     padding: 30px;
 }
-
 /* FIM FOOTER */
 /* CADASTRO */
 input[type=text],
@@ -140,7 +139,24 @@ fieldset {
     padding: 5px;
     background-color: #b2d7af;
 }
+.wave {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(270deg, #08f03a, #189913, #1f801b, #298126, #337c31, #3d753b, #446843, #6e7e71, #94d82d, #68ac5b);
+    background-size: 200% 200%;
+    animation: waveAnimation 5s ease;
+}
 
+@keyframes waveAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 200%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 legend {
     color: #000000;
     background-color: #92af8f;
