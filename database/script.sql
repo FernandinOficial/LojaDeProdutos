@@ -1,5 +1,5 @@
 -- SQLBook: Code
--- CREATE DATABASE dbloja;
+ CREATE DATABASE dbloja;
 USE dbloja;
 CREATE TABLE cliente
 (
