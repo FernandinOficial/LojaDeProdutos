@@ -4,6 +4,9 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+body {
+    background-color: rgba(112, 160, 36, 0.349);
+}
 /* HEADER */
 header {
     background: rgb(80,97,69);
@@ -22,7 +25,15 @@ header {
     font-size: 20px;
     padding: 20px;
 }
-
+.nav a:hover{
+    background-color: #9b9292;
+    padding: 10px;
+    border-radius: 5px;
+    background: linear-gradient(60deg, #08f03a, #189913, #1f801b, #298126, #337c31, #3d753b, #446843, #374b3b, #4c6450, #5d7e63);
+    background-size: 200% 200%;
+    animation: waveAnimation 5s ease infinite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .container {
     max-width: 500px;
     /*tamanho do fieldset*/
@@ -79,7 +90,7 @@ input[type=text],
 }
 
 .cadastrar {
-    background-color: rgb(106, 110, 105);
+    background-color: rgb(102, 143, 100);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -138,28 +149,25 @@ fieldset {
     border-radius: 6px;
     padding: 5px;
     background-color: #b2d7af;
-}
-.wave {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(270deg, #08f03a, #189913, #1f801b, #298126, #337c31, #3d753b, #446843, #6e7e71, #94d82d, #68ac5b);
+    background: linear-gradient(60deg, #08f03a, #189913, #1f801b, #298126, #337c31, #3d753b, #446843, #374b3b, #4c6450, #5d7e63);
     background-size: 200% 200%;
-    animation: waveAnimation 5s ease;
+    animation: waveAnimation 5s ease infinite;
 }
-
 @keyframes waveAnimation {
     0% {
         background-position: 0% 50%;
     }
     50% {
-        background-position: 100% 200%;
+        background-position: 100% 50%;
     }
     100% {
         background-position: 0% 50%;
     }
+}
+
 legend {
     color: #000000;
-    background-color: #92af8f;
+    background-color:  rgb(102, 143, 100);
     border-radius: 5px;
     padding: 10px;
     border: 1px solid #000;

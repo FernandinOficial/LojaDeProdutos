@@ -65,7 +65,7 @@ $id_cli = isset($_POST["id_cli"]) ? $_POST["id_cli"] : -1;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro | Supermercado Avante</title>
+    <title>+ Cliente | Supermercado Avante</title>
     <link rel="shortcut icon" href="imagens/iconCadastro.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilos.css">
     <style>

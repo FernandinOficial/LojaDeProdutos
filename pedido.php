@@ -13,7 +13,8 @@ if ($mysqli->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Avante</title>
+    <title>Pedi | Supermercado Avante</title>
+    <link rel="shortcut icon" href="imagens/iconProduto.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilos.css" type="text/css">
     <style>
         * {
@@ -64,6 +65,7 @@ if ($mysqli->connect_error) {
                 </tr>
                 <?php
                 while ($row = $result->fetch_assoc()) {
+                    
                     echo "<tr>";
                     echo "<td>" . $row['nome_cli'] . "</td>";
                     echo "<td>" . $row['rua'] . "</td>";
@@ -82,6 +84,7 @@ if ($mysqli->connect_error) {
         }
     
     ?>
+  
     <form action="prateleira.php" method="POST">
         <div class="container">
             <fieldset id="fieldsetcad">
@@ -90,16 +93,16 @@ if ($mysqli->connect_error) {
                 </legend><br>
 
                 <label for="nome_cli">Nome Cliente</label><br>
-                <input type="text" name="nome_cli" value="<?php echo $id_cli?>"><br><br>
+                <input type="text" name="nome_cli" value="<?php echo $row['nome_cli']; ?>"><br><br>
 
                 <label for="nome_prod">Produto</label><br>
-                <input type="text" name="nome_prod" value="<?php echo $nome_prod?>"> <br><br>
+                <input type="text" name="nome_prod" value="<?php echo $nome_prod; ?>"> <br><br>
 
                 <label for="data_ped">Data de emissão:</label><br>
-                <input type="text" name="data_ped" value="<?php echo $data_ped?>"
+                <input type="text" name="data_ped" value="<?php echo $data_ped; ?>"
                     required><br><br>
 
-                <input type="hidden" name="id_cli" value="<?php echo $id_cli?>"><br>
+                <input type="hidden" name="id_cli" value="<?php echo $id_cli; ?>"><br>
 
                 <button class="button" type="submit"></button><br><br>
                 <p>Clique <a class="aqui" href="produto.php">aqui</a> para fazer o seu pedido</p>
