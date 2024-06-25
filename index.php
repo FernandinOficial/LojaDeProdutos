@@ -17,43 +17,44 @@
     </style>
 </head>
 
-<body style="background-image: url('imagens/mercadobg.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;">
-    <?php
+<body>
+        <?php
 
-    require_once 'header.php';
+        require_once 'header.php';
 
-    ?>
-    <div class="container">
-        <fieldset>
-            <legend>
-                <h2>Caixa</h2>                   
-            </legend>
-            <h1>Cliente novo?</h1>
-            <a href="cadastro.php" id="a_link">
-                <h2>Cadastrar</h2>
-            </a><br>
+        ?>
+        <div class="container">
+            <fieldset>
+                <legend>
+                    <h2>Caixa</h2>                   
+                </legend>
+                <h1>Cliente novo?</h1>
+                <a href="cadastro.php" id="a_link">
+                    <h2>Cadastrar</h2>
+                </a><br>
 
-            <hr>
+                <hr>
 
-            <h1>Realizar pedido novo</h1>
-            <a href="pedido.php" id="a_link">
-                <h2>Pedido</h2>
-            </a><br>
+                <h1>Realizar pedido novo</h1>
+                <a href="pedido.php" id="a_link">
+                    <h2>Pedido</h2>
+                </a><br>
 
-            <hr>
+                <hr>
 
-            <h1>Explorar produtos</h1>
-            <a href="prateleira.php" id="a_link">
-                <h2>Prateleira</h2>
-            </a>
+                <h1>Explorar produtos</h1>
+                <a href="prateleira.php" id="a_link">
+                    <h2>Prateleira</h2>
+                </a>
 
-            <a href="https:www.google.com" id="a_sair">
-                <h3 style="color: red; float: right; padding-right: 8%;">Sair da loja</h3>
-            </a>
-        </fieldset>
-    </div>
-    <?php
+                <a href="https:www.google.com" id="a_sair">
+                    <h3 style="color: red; float: right; padding-right: 8%;">Sair da loja</h3>
+                </a>
+            </fieldset>
+        </div>
+        <?php
 
-    require_once 'footer.php';
+        require_once 'footer.php';
 
-    ?>
+        ?>
+    
