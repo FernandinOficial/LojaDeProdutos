@@ -7,13 +7,9 @@
     <title>| Supermercado Avante</title>
     <link rel="shortcut icon" href="imagens/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/estilos.css">
-    <style> 
-        fieldset{
-            
-        }
-        #a_link {
+    <style>
+        #a_link {}
 
-        }
         #a_link:hover {
             transition: 500ms;
             transform: scale(1.1);
@@ -21,7 +17,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-image: url('imagens/mercadobg.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;">
     <?php
 
     require_once 'header.php';
@@ -30,7 +26,7 @@
     <div class="container">
         <fieldset>
             <legend>
-                <h2>Caixa</h2>
+                <h2>Caixa</h2>                   
             </legend>
             <h1>Cliente novo?</h1>
             <a href="cadastro.php" id="a_link">

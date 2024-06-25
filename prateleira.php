@@ -37,7 +37,7 @@ $result = $mysqli->query($sql);
         echo "<td>" . $row['preco_unit'] . "</td>";
         echo "<td>" . $row['desc_prod'] . "</td>";
 
-        echo "<td><input type='submit' name='delete' value='Disable' class='delete'/></td>"; // cria um input que serve como o botão de delete
+        echo "<td><input type='submit' name='delete' value='Disable' class='delete' style='cursor: pointer;'/></td>"; // cria um input que serve como o botão de delete
     
         echo "</tr>";
         echo "</form>";

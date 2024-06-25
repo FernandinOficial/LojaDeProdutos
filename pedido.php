@@ -4,53 +4,10 @@ include_once 'includes/db_connect.php';
 $erro = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    if (isset($_POST["data_ped"], $_POST["prazo_entrega"])) {
-        // Validando campos obrigatórios
-        if (empty($_POST["data_ped"]) || empty($_POST["prazo_entrega"])) {
-
-            $erro = "Todos os campos são obrigatórios.";
-
-        } else {
-            
-            $id_ped = $_POST["id_ped"];
-            $data_ped = $_POST["data_ped"];
-            $prazo_entrega = $_POST["prazo_entrega"];
-
-            // Inserindo ou atualizando no banco de dados
-            if ($id_ped == -1) {
-                $stmt = $mysqli->prepare("INSERT INTO `pedido` (`data_ped`, `prazo_entrega`) VALUES (?, ?)");
-                $stmt->bind_param("sssiss", $data_ped, $prazo_entrega);
-
-                if ($stmt->execute()) {
-                    header("Location: pedido.php");
-                    exit;
-                } else {
-                    $erro = "Erro ao cadastrar pedido: " . $stmt->error;
-                }
-            } else {
-                $erro = "Operação não suportada.";
-            }
-        }
-    } else {
-        $erro = "Todos os campos são obrigatórios.";
-    }
+    se nome cliente = id cli referencie a tabela daquele cliente 
+    se nome produto = id prod referencia a tabela com o valor deste determinado produto 
+    
 }
-
-// processamento para deletar cliente
-if (isset($_GET["id_ped"]) && is_numeric($_GET["id_ped"]) && isset($_GET["del"])) {
-    $id_ped = (int) $_GET["id_ped"];
-    $stmt = $mysqli->prepare("DELETE FROM `pedido` WHERE id_ped = ?");
-    $stmt->bind_param('i', $idid_ped_cli);
-    $stmt->execute();
-
-    header("Location: pedido.php");
-    exit;
-}
-
-// preenchendo os valores para edição
-$prazo_entrega = isset($_POST["prazo_entrega"]) ? $_POST["prazo_entrega"] : "";
-$data_ped = isset($_POST["data_ped"]) ? $_POST["data_ped"] : "";
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +49,7 @@ $data_ped = isset($_POST["data_ped"]) ? $_POST["data_ped"] : "";
 
 <body>
     <?php if (!empty($erro)): ?>
-        <p> <?= $erro ?></p>
+        <p> <?php $erro ?></p>
     <?php endif; ?>
 
     <?php
@@ -102,15 +59,18 @@ $data_ped = isset($_POST["data_ped"]) ? $_POST["data_ped"] : "";
     <form action="prateleira.php" method="POST">
         <div class="container">
             <fieldset id="fieldsetcad"><legend><h1>Pedido</h1></legend><br>
-        
+
+                <label for="">Nome</label>
+                <input type="text" name="nome_cli" > 
+
                 <label for="prazo_entrega">Prazo de entrega:</label><br>
-                <input type="text" name="rua" value="<?= $rua ?>" required><br><br>
+                <input type="text" name="rua" value="<?php $rua ?>" required><br><br>
 
                 <label for="data_ped">Data do pedido:</label><br>
-                <input type="text" name="numero" value="<?= $numero ?>" required><br><br>
+                <input type="text" name="numero" value="<?php $numero ?>" required><br><br>
 
-                <input type="hidden" name="id_cli" value="<?= $id_cli ?>"><br>
-                <button type="submit"><?= ($id_cli == -1) ? "Cadastrar" : "Salvar" ?></button>
+                <input type="hidden" name="id_cli" value="<?php $id_cli ?>"><br>
+                <button type="submit"><? ($id_cli == -1)?>Comprar</button>
                 <br><br>
                 <p>Clique <a class="aqui" href="produto.php">aqui</a> para fazer o seu </p>
             </fieldset>
